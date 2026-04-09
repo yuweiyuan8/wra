@@ -1,5 +1,8 @@
 name: build
-on: [pull_request, push]
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:  # 添加这一行即可手动触发
 
 jobs:
   build:
@@ -16,6 +19,12 @@ jobs:
               sudo ln -s $(realpath debootstrap) -t /usr/share/
       - name: install qemu-user-static
         run:  sudo apt install qemu-user-static
+
+      - name: install dependencies
+        run: |
+             sudo apt-get update
+             sudo apt-get install -y \
+             libbrotli-dev
 
       - name: download base gsi.img
         run:  |
