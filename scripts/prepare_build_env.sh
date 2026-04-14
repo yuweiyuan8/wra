@@ -9,8 +9,8 @@ mkdir -p $BUILD_ROOT
 cd "$BUILD_ROOT" || exit 1
 
 if [ ! -d "rootfs-build" ]; then
-    _notice_ "Bootstraping Debian sid...in "$(pwd)"/rootfs-build for build"
-    debootstrap --arch=arm64 sid rootfs-build
+    _notice_ "Bootstraping Debian trixie...in "$(pwd)"/rootfs-build for build"
+    debootstrap --arch=arm64 trixie rootfs-build
 else
     echo $(pwd)"/rootfs-build already exists,skiping"
 fi
