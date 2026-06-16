@@ -67,7 +67,7 @@ attempt=0
 while [ $attempt -le 3 ]; do
     echo "attempt mount $attempt times"
     wra_exec /bin/busybox mount /dev/block/by-name/persist /mnt/vendor/persist -o ro
-    wra_exec /bin/busybox mount /dev/block/by-name/modem_a /vendor/firmware_mnt -o ro
+    wra_exec /bin/busybox mount /dev/block/by-name/modem /vendor/firmware_mnt -o ro
     if [ $? -eq 0 ]; then
         break
     fi
